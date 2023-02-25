@@ -1,14 +1,18 @@
-package pl.blog.blogJourney.entity;
+package pl.blog.blogJourney.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.blog.blogJourney.repository.JourneyTag;
+
 import java.util.Set;
 
 
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "journey")
@@ -26,7 +30,7 @@ public class JourneyEntity {
   @OneToMany(mappedBy = "journeyId")
   Set<JourneyPointEntity> journeyPoints;
 
-  @ManyToMany (mappedBy = "journeys")
-  Set<TagEntity> tags;
+  @Enumerated(EnumType.STRING)
+  Set<JourneyTag> journeyTags;
 
 }
