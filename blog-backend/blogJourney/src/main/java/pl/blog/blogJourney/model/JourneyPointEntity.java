@@ -1,9 +1,17 @@
-package pl.blog.blogJourney.entity;
+package pl.blog.blogJourney.model;
 
 import jakarta.persistence.*;
-import pl.blog.blogJourney.repository.PhotoRepository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "journey_point")
 public class JourneyPointEntity {
 
@@ -14,9 +22,8 @@ public class JourneyPointEntity {
 
     private String name;
     private String description;
-    private String locationName;
-    private int coordinateX;
-    private int coordinateY;
+    private double coordinateX;
+    private double coordinateY;
 
 
     @ManyToOne()
