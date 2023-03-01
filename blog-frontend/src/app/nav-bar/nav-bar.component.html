@@ -1,0 +1,15 @@
+<ul class="background-color-blue no-top-margin">
+  <li class="display-horizontal title"><a> Tour de World</a></li>
+  <nav mat-tab-nav-bar mat-stretch-tabs="false" mat-align-tabs="end" color="primary"  >
+    <a mat-tab-link class="no-underline color"
+       *ngFor="let link of links"
+       (click)="activeLink = link"
+       [active]="activeLink == link"
+       [routerLink]=link
+    >
+      {{link.toUpperCase()}}
+    </a>
+  </nav>
+</ul>
+
+
