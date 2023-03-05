@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
-  links : string[] = [ 'home', 'about' , 'discover' ]
+  links : string[] = [ 'home', 'discover', 'about' ]
   activeLink = this.links[0];
 
   constructor() {

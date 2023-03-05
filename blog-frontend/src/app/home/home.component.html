@@ -1,15 +1,6 @@
-<div class="slide-container">
-  <div class="slide" [ngStyle]="{'background-image': getCurrentSlideUrl() }">
-  </div>
-  <div class="dots-container">
-    <div
-      *ngFor="let slide of slides; let slideIndex = index"
-      class="dot"
-      (click)="goToSlide(slideIndex)"
-      [ngClass]="getCurrentSlide() == slideIndex  ? 'dot-color-selected' : 'dot-color-not-selected'  "
-    >
-      .
-    </div>
-  </div>
+<div class="carousel-container">
+  <app-carousele [slides]="slides"></app-carousele>
+  <a class="title" routerLink="/discover">DISCOVER</a>
 </div>
+
 

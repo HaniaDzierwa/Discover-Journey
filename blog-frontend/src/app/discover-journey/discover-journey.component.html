@@ -1,1 +1,8 @@
-<p>discover-journey works!</p>
+<h2 class="title">DISCOVER JOURNEYS</h2>
+<div class="browse-container">
+  <app-browse [tags]="tags"></app-browse>
+</div>
+
+<div class="cardsContainer" *ngFor="let card of cards">
+  <app-card-journey [card]="card"></app-card-journey>
+</div>
