@@ -1,6 +1,8 @@
-<ul class="background-color-blue no-top-margin">
-  <li class="display-horizontal title"><a> Tour de World</a></li>
-  <nav mat-tab-nav-bar mat-stretch-tabs="false" mat-align-tabs="end" color="primary"  >
+<div class="background-color-blue no-top-margin navbar-container">
+  <div routerLink="/home" [ngClass]="{'title':true , 'no-underline': true}">
+    Tour de World
+  </div>
+  <nav mat-tab-nav-bar mat-stretch-tabs="false" mat-align-tabs="end" color="primary">
     <a mat-tab-link class="no-underline color"
        *ngFor="let link of links"
        (click)="activeLink = link"
@@ -10,6 +12,6 @@
       {{link.toUpperCase()}}
     </a>
   </nav>
-</ul>
+</div>
 
 

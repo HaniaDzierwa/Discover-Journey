@@ -1,38 +1,20 @@
-.slide {
-  height: 100%;
-  width: auto;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 25px;
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@600&display=swap');
+
+.carousel-container {
   position: relative;
-  transition: background-image 1s ease-in-out;
-
 }
 
-.slide-container {
-  height: 700px;
-  width: auto;
-  margin: 5%;
-
-}
-
-.dot{
-  cursor: pointer;
+.title {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  font-family: 'DynaPuff', cursive;
+  color: var(--orange);
   font-size: 50px;
-  margin-right:10px;
-  caret-color: transparent;
+  text-decoration: none;
 }
-
-.dots-container {
-  display: flex;
-  justify-content: center;
-}
-
-.dot-color-selected {
-  color: black;
-}
-
-.dot-color-not-selected {
-  color: gray;
+a:hover {
+  font-size: 70px;
+  top: 40%;
+  left: 42%;
 }

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core'
-import {Slide} from "../Slide";
-import {animate} from "@angular/animations";
+import {Slide} from "../interfaces/slide";
+
 
 
 @Component({
@@ -12,8 +12,6 @@ import {animate} from "@angular/animations";
 
 export class HomeComponent {
 
-  currenSlideIndex: number = 0;
-  nextSlideDelay: number = 6000
   slides: Slide[] = [
     {
       url: '../../assets/image/first.jpg'
@@ -35,25 +33,6 @@ export class HomeComponent {
     },
   ];
 
-  getCurrentSlideUrl(): string {
-    return `url('${this.slides[this.currenSlideIndex].url}')`;
-  }
-  getCurrentSlide(): number {
-    return this.currenSlideIndex;
-  }
-
-  goToSlide(currentSlideIndex: number) {
-    this.currenSlideIndex = currentSlideIndex;
-  }
-
-  showNext() {
-    this.currenSlideIndex  === this.slides.length-1  ? this.currenSlideIndex=0 : this.currenSlideIndex++
-    this.getCurrentSlide();
-  }
-
-  ngOnInit() {
-    setInterval(() => {this.showNext()},this.nextSlideDelay);
-  }
 
 }
 
