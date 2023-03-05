@@ -19,6 +19,7 @@ import {FormsModule} from "@angular/forms";
 import { BrowseComponent } from './browse/browse.component';
 import { FilterComponent } from './filter/filter.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     BrowserAnimationsModule,
     MatListModule,
     FormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
