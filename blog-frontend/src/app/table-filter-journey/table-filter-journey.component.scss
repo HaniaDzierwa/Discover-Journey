@@ -1,0 +1,33 @@
+.mat-mdc-table {
+  font-size: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  caret: transparent;
+}
+
+.filter-container {
+  font-size: 14px;
+  padding: 0px;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  height: auto;
+}
+
+.container-button {
+  margin: 10px;
+}
+
+.show-all-button {
+  width: 100%;
+  background-color: var(--orange);
+  border-radius: 20px;
+  border: solid transparent;
+  padding: -10px;
+  color: white;
+}
+
+.mat-mdc-checkbox.mat-primary {
+  --mdc-checkbox-selected-checkmark-color: white
+}

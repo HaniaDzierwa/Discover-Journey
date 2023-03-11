@@ -1,0 +1,14 @@
+<div class="select">
+  <mat-action-list>
+    <mat-select placeholder="{{selectPlaceholder}}" required #select>
+      <mat-select-trigger>
+        {{ select.value }}
+      </mat-select-trigger>
+      <ng-container *ngFor="let tag of tags">
+        <mat-option [value]="tag">
+          {{tag}}
+        </mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-action-list>
+</div>

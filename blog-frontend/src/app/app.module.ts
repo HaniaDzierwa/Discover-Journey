@@ -10,17 +10,22 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
 import {CardJourneyComponent} from './card-journey/card-journey.component';
-import {TagComponent} from './tag/tag.component';
+import {BadgeComponent} from './badge/badge.component';
 import {CarouseleComponent} from './carousele/carousele.component';
 import {MatSelectModule} from "@angular/material/select";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
 import {FormsModule} from "@angular/forms";
-import { BrowseComponent } from './browse/browse.component';
-import { FilterComponent } from './filter/filter.component';
+import {BrowseComponent} from './browse/browse.component';
+import {DiscoverJourneyFilterComponent} from './filter/discover-journey-filter.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { MatTableModule} from "@angular/material/table";
-
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
+import {DiscoverComponent} from './discover/discover.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {TableFilterJourneyComponent} from './table-filter-journey/table-filter-journey.component';
+import {MatInputModule} from "@angular/material/input";
+import { ExpandComponent } from './expand/expand.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +35,13 @@ import { MatTableModule} from "@angular/material/table";
     HomeComponent,
     NavBarComponent,
     CardJourneyComponent,
-    TagComponent,
+    BadgeComponent,
     CarouseleComponent,
     BrowseComponent,
-    FilterComponent
+    DiscoverJourneyFilterComponent,
+    DiscoverComponent,
+    TableFilterJourneyComponent,
+    ExpandComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,10 @@ import { MatTableModule} from "@angular/material/table";
     MatListModule,
     FormsModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

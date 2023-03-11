@@ -1,0 +1,26 @@
+<mat-sidenav-container>
+  <mat-sidenav #filter mode=push>
+    <h2 class="title"> Filter journeys </h2>
+    <mat-divider></mat-divider>
+    <app-badge [tags]="selectedOptions"></app-badge>
+    <div class="filter-table-container" *ngFor="let option of filterOptions let index">
+      <app-expand
+        [title]="option.title"
+        (expandedEvent)="getExpended($event)"
+      >
+      </app-expand>
+      <app-table-filter-journey
+        [title] = option.title
+        [isExpand]="option.expended"
+        [filterElements]="option.data"
+        (selectedOptions)="getSelectedOptions($event)"
+
+      >
+      </app-table-filter-journey>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

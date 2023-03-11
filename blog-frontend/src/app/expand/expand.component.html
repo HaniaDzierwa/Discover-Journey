@@ -1,0 +1,11 @@
+<div mat-subheader class="category-container">
+  {{title}}
+  <button (click)="expand()" mat-icon-button class="expand-button">
+    <mat-icon *ngIf="expanded">
+      check_circle
+    </mat-icon>
+    <mat-icon *ngIf="!expanded">
+      check_circle_outline
+    </mat-icon>
+  </button>
+</div>

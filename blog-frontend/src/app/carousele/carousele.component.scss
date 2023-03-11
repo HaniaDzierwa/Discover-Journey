@@ -1,0 +1,38 @@
+.slide {
+  height: 100%;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  position: relative;
+  transition: background-image 1s ease-in-out;
+
+}
+
+.slide-container {
+  height: 700px;
+  width: auto;
+  margin: 5%;
+
+}
+
+.dot{
+  cursor: pointer;
+  font-size: 50px;
+  margin-right:10px;
+  caret-color: transparent;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dot-color-selected {
+  color: black;
+}
+
+.dot-color-not-selected {
+  color: gray;
+}
