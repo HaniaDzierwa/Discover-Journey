@@ -2,19 +2,22 @@
   <mat-sidenav #filter mode=push>
     <h2 class="title"> Filter journeys </h2>
     <mat-divider></mat-divider>
-    <app-badge [tags]="selectedOptions"></app-badge>
-    <div class="filter-table-container" *ngFor="let option of filterOptions let index">
+    <div  *ngFor="let option of selectedOptions">
+      <div class="display-flex" *ngFor="let tag of option.elements">
+        <app-badge [text]="tag" [backgroundColor]="getBadgeColor(option.category)"></app-badge>
+      </div>
+    </div>
+
+    <div class="filter-table-container" *ngFor="let option of filterOptions">
       <app-expand
         [title]="option.title"
         (expandedEvent)="getExpended($event)"
       >
       </app-expand>
       <app-table-filter-journey
-        [title] = option.title
+        [title]=option.title
         [isExpand]="option.expended"
         [filterElements]="option.data"
-        (selectedOptions)="getSelectedOptions($event)"
-
       >
       </app-table-filter-journey>
       <mat-divider></mat-divider>
@@ -24,3 +27,4 @@
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+

@@ -20,14 +20,12 @@ export class DiscoverJourneyComponent implements OnInit {
       {
         title: "Moja pierwsza podroz",
         description: "taka o sobie podroz",
-        tags: new Set ( ["CHILL", "FUN"])
-
+        tags: new Set(["CHILL", "FUN"])
       },
       {
         title: "Moja druga podroz",
         description: "taka o sobie podroz",
-        tags: new Set (["CHILL", "FUN"])
-
+        tags: new Set(["CHILL", "FUN"])
       }
     ];
   }

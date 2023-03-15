@@ -1,5 +1,8 @@
 <div *ngIf="isExpand">
-<!--  <app-badge [tags]="selectedRows"></app-badge>-->
+  <div class="display-flex" *ngFor="let tag of selectedRows">
+    <app-badge [text]="tag" ></app-badge>
+  </div>
+
 
   <div class="filter-container dense-1">
     <mat-form-field appearance="outline">
@@ -8,10 +11,9 @@
     </mat-form-field>
   </div>
 
-
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="select" >
+      <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox (change)="$event ? toggleAllRows() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
@@ -38,7 +40,7 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-          (click)="selection.toggle(row);update(row)">
+          (click)="selection.toggle(row);update()">
       </tr>
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>

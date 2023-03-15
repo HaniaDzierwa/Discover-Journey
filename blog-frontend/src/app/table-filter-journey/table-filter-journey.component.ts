@@ -1,11 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FilterInterface} from "../interfaces/tag";
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {SelectionService} from "../selection.service";
-import {SelectedOptionsForCategory} from "../interfaces/selected-options-for-category";
-import {combineLatestAll} from "rxjs";
-import {filterOptionsMap} from "../interfaces/FilterOption";
+
 
 @Component({
   selector: 'app-table-filter-journey',
@@ -23,53 +21,39 @@ export class TableFilterJourneyComponent implements OnInit {
   displayedColumns: string[] = ['select', 'name']
   dataSource = new MatTableDataSource<FilterInterface>();
   selection = new SelectionModel<any>(true, []);
-  selectedRows: [] = []
+  selectedRows: Set<string> = new Set<string>()
   isShowAll: boolean = false;
   showAll: string = "Show more"
   showLess: string = "Show less"
   messageShowAllorLess: string = this.showAll;
 
-  allOptions: Set<string> = new Set<string>()
-
-  @Output() selectedOptions = new EventEmitter<SelectedOptionsForCategory>();
-
   constructor(private _selectionService: SelectionService) {
   }
-
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource<FilterInterface>(this['filterElements']);
     this.dataSource = new MatTableDataSource<FilterInterface>(this.dataSource.data.slice(0, this.limitRows))
-    // Object.values(filterOptionsMap.get(this.title).forEach( v => {
-    //   v.name
-    // })
-    // console.log('all' + this.allOptions)
   }
 
-  update(row: any) {
-    //console.log('row ' + row.name)// zwraca ten co sie zmienil
-    this.selectedRows = []
-    //console.log(this.selection.selected)
-    // this.selection.selected.map(v => v.name).forEach(value => {
-    //   this.selectedRows.includes(value)
-    // })
-
+  update() {
     const selectedRowsSorted: string[] = this.dataSource.data
-      .map(item => { console.log(this.selection.isSelected(item.name))
-        return this.selection.isSelected(item) ? item : null})
+      .map(item => {
+        console.log(this.selection.isSelected(item.name))
+        return this.selection.isSelected(item) ? item : null
+      })
       .filter(item => item !== null)
       .map(v => v?.name)
       .map(name => name as string)
 
 
-    // selectedRowsSorted.forEach(value => {
-    //   this.selectedRows.add(value)
-    // })
-    //this.selectedOptions.emit( {title: this.title, selectedOptions: this.selectedRows});
-    //this._selectionService.updateSelectedElements(this.selectedRows);
-    //console.log(this.selectedRows) //tutaj pokazuje dobre wartosci ktore zostaly zmienione
+    //show above only for one category
+    this.selectedRows.clear()
+    selectedRowsSorted.forEach(value => {
+      this.selectedRows.add(value)
+    })
 
-    this._selectionService.updateSelectedElement({category: this.title, elements: selectedRowsSorted})
+    //show above all
+    this._selectionService.updateSelectedElements({category: this.title, elements: selectedRowsSorted})
   }
 
   isAllSelected() {
@@ -85,7 +69,7 @@ export class TableFilterJourneyComponent implements OnInit {
     } else {
       this.selection.select(...this.dataSource.data);
     }
-    //this.update()
+    this.update()
     this.dataSource = new MatTableDataSource<FilterInterface>(this.dataSource.data.slice(0, this.limitRows))
     this.messageShowAllorLess = this.showAll;
     this.isShowAll = false;
@@ -95,7 +79,6 @@ export class TableFilterJourneyComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row}`;
   }
 
@@ -121,9 +104,5 @@ export class TableFilterJourneyComponent implements OnInit {
       this.dataSource = new MatTableDataSource<FilterInterface>(this.dataSource.data.slice(0, this.limitRows))
       this.messageShowAllorLess = this.showAll;
     }
-  }
-
-  public getSelectedOptions() {
-    return this.selectedRows
   }
 }

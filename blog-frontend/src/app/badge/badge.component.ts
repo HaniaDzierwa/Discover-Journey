@@ -6,10 +6,7 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent {
-
-  @Input() tags: Set<string> = new Set<string>();
-  @Input() backgroundColor: string = '#000';
-
-  colorek: string = '#fff'
+  @Input() text: string = ''
+  @Input() backgroundColor: string = ''
 }
 

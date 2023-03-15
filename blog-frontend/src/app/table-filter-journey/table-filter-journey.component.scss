@@ -7,7 +7,7 @@
 
 .filter-container {
   font-size: 14px;
-  padding: 0px;
+  padding: 0;
 }
 
 .mat-mdc-form-field {
@@ -26,8 +26,13 @@
   border: solid transparent;
   padding: -10px;
   color: white;
+  margin-bottom: 20px;
 }
 
 .mat-mdc-checkbox.mat-primary {
   --mdc-checkbox-selected-checkmark-color: white
+}
+
+.display-flex {
+  display: inline-flex;
 }
