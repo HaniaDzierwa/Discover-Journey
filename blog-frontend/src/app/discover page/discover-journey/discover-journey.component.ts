@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Card} from "../interfaces/card";
-import {UserFilter} from "../interfaces/user-filter";
-import {FilterService} from "../filter.service";
+import {Card} from "../../interfaces/card";
+import {UserFilter} from "../../interfaces/user-filter";
+import {FilterService} from "../../filter.service";
 
 @Component({
   selector: 'app-discover-journey',

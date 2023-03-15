@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ExpendedEventInterface} from "../interfaces/ExpendedEventInterface";
+import {ExpendedEventInterface} from "../../interfaces/ExpendedEventInterface";
 
 @Component({
   selector: 'app-expand',

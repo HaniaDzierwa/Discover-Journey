@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Slide} from "../interfaces/slide";
+import {Slide} from "../../interfaces/slide";
 
 @Component({
   selector: 'app-carousele',

@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FilterService} from "../filter.service";
-import {ExpendedEventInterface} from "../interfaces/ExpendedEventInterface";
-import {FilterOptionInterface, filterOptionsMap} from "../interfaces/FilterOption";
-import {SelectionService} from "../selection.service";
-import {getBadgeColor} from "../interfaces/badge";
+import {FilterService} from "../../filter.service";
+import {ExpendedEventInterface} from "../../interfaces/ExpendedEventInterface";
+import {FilterOptionInterface, filterOptionsMap} from "../../interfaces/FilterOption";
+import {SelectionService} from "../../selection.service";
+import {getBadgeColor} from "../../interfaces/badge";
 
 
 @Component({

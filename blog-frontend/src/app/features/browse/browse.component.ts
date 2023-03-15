@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {UserFilter} from "../interfaces/user-filter";
+import {UserFilter} from "../../interfaces/user-filter";
 
 @Component({
   selector: 'app-browse',

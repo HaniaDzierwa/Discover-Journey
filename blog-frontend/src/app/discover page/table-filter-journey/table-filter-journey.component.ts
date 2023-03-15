@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FilterInterface} from "../interfaces/tag";
+import {FilterInterface} from "../../interfaces/tag";
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
-import {SelectionService} from "../selection.service";
+import {SelectionService} from "../../selection.service";
 
 
 @Component({
