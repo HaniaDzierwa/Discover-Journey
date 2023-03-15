@@ -8,8 +8,20 @@
 .cardsContainer {
   display: inline-block;
   margin: 20px;
+  height: 100%;
 }
 
+.browse-container {
+  display: flex;
+}
 
+.all-container {
+  width: 100%;
+  height: auto;
+}
 
-
+.filter-button {
+  border: none;
+  background-color: transparent;
+  color: var(--orange)
+}

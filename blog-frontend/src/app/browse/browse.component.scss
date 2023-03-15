@@ -1,0 +1,19 @@
+.select {
+  width: 150px;
+  margin: 20px;
+}
+
+:host .mat-mdc-list-base {
+  caret: transparent;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: lightgray;
+}
+
+:host .mat-mdc-list-base :focus {
+  background-color: var(--orange);
+  border-radius: 20px;
+  padding: 8px 12px;
+  margin: -8px -12px;
+}

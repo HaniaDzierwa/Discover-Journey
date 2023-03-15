@@ -1,0 +1,18 @@
+<mat-card class="card-general border-radius" routerLink='/about'>
+  <!--    to do change about to correct path-->
+  <mat-card-header>
+    <mat-card-title> {{card.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <img src="assets/image/journey1.1.jpg" class="border-radius image" alt="image">
+      <div class="overlay border-radius title text">
+        <div class="margin"> {{card.description}}</div>
+      </div>
+    </div>
+    <div class=display-flex *ngFor="let tag of card.tags">
+      <app-badge [text]="tag"></app-badge>
+    </div>
+
+  </mat-card-content>
+</mat-card>

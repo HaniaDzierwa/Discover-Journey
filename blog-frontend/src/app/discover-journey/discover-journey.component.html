@@ -1,8 +1,14 @@
-<h2 class="title">DISCOVER JOURNEYS</h2>
-<div class="browse-container">
-  <app-browse [tags]="tags"></app-browse>
+<div class="all-container">
+  <h2 class="title">DISCOVER JOURNEYS</h2>
+  <div class="browse-container">
+    <app-browse [tags]="tags"></app-browse>
+    <button mat-icon-button (click)="openFilter()" class="filter-button">
+      <mat-icon>tune</mat-icon>
+    </button>
+  </div>
+
+  <div class="cardsContainer" *ngFor="let card of cards">
+    <app-card-journey [card]="card"></app-card-journey>
+  </div>
 </div>
 
-<div class="cardsContainer" *ngFor="let card of cards">
-  <app-card-journey [card]="card"></app-card-journey>
-</div>

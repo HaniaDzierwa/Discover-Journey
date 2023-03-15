@@ -1,0 +1,31 @@
+mat-sidenav-container {
+  height: 95%;
+  margin-bottom: 10px;
+}
+
+.mat-drawer.mat-drawer-push {
+  background-color: white;
+  width: 400px;
+}
+
+.mat-divider {
+  margin: 0 20px;
+}
+
+.filter-table-container {
+  margin: 30px;
+}
+
+.category-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.display-flex {
+  display: inline-flex;
+}

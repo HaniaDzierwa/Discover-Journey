@@ -1,5 +1,4 @@
 export enum Tag {
-  ALL ='ALL',
   LEISURE = 'LEISURE',
   ADVENTURE = 'ADVENTURE',
   RELIGIOUS = 'RELIGIOUS',
@@ -8,4 +7,8 @@ export enum Tag {
   EXTREME_SPORT = 'EXTREME_SPORT',
   KIDS = 'KIDS',
   ITINERARY = 'ITINERARY'
+}
+
+export interface FilterInterface {
+  name: string;
 }
