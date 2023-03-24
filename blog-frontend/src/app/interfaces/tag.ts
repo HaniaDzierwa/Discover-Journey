@@ -6,7 +6,8 @@ export enum Tag {
   SPORT = 'SPORT',
   EXTREME_SPORT = 'EXTREME_SPORT',
   KIDS = 'KIDS',
-  ITINERARY = 'ITINERARY'
+  ITINERARY = 'ITINERARY',
+  CHILL = 'CHILL'
 }
 
 export interface FilterInterface {

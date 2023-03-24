@@ -1,7 +1,6 @@
-export interface Card {
-  title: string,
+export interface JourneyModel {
+  name: string
   description: string
   month: string
   tags: Set<string>
-
 }

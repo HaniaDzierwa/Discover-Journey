@@ -25,7 +25,8 @@ import {DiscoverComponent} from './discover page/discover/discover.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {TableFilterJourneyComponent} from './discover page/table-filter-journey/table-filter-journey.component';
 import {MatInputModule} from "@angular/material/input";
-import { ExpandComponent } from './features/expand/expand.component';
+import {ExpandComponent} from './features/expand/expand.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,9 @@ import { ExpandComponent } from './features/expand/expand.component';
     MatTableModule,
     MatIconModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FilterInterface} from "../../interfaces/tag";
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
-import {SelectionService} from "../../selection.service";
+import {SelectionService} from "../../services/selection.service";
 
 
 @Component({
@@ -38,7 +38,6 @@ export class TableFilterJourneyComponent implements OnInit {
   update() {
     const selectedRowsSorted: string[] = this.dataSource.data
       .map(item => {
-        console.log(this.selection.isSelected(item.name))
         return this.selection.isSelected(item) ? item : null
       })
       .filter(item => item !== null)
