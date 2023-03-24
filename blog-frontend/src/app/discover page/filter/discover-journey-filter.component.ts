@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FilterService} from "../../filter.service";
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {FilterService} from "../../services/filter.service";
 import {ExpendedEventInterface} from "../../interfaces/ExpendedEventInterface";
 import {FilterOptionInterface, filterOptionsMap} from "../../interfaces/FilterOption";
-import {SelectionService} from "../../selection.service";
+import {SelectionService} from "../../services/selection.service";
 import {getBadgeColor} from "../../interfaces/badge";
 
 
@@ -13,11 +13,10 @@ import {getBadgeColor} from "../../interfaces/badge";
 })
 
 
-export class DiscoverJourneyFilterComponent implements OnInit {
+export class DiscoverJourneyFilterComponent implements OnInit, OnDestroy {
   @ViewChild('filter') filter!: any
 
   get selectedOptions() {
-    console.log(this.selectionService.selectedElementsWithCategory)
     return this.selectionService.selectedElementsWithCategory
   }
 
@@ -40,6 +39,10 @@ export class DiscoverJourneyFilterComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.selectionService.clean()
+  }
+
   handleSideFilter(state: boolean): void {
     state ? this.filter.open() : this.filter.close();
   }
@@ -52,8 +55,12 @@ export class DiscoverJourneyFilterComponent implements OnInit {
     });
   }
 
-  getBadgeColor (category: string) {
+  getBadgeColor(category: string) {
     return this.color = getBadgeColor(category).backgroundColor
+  }
+
+  displaySelectedCards() {
+    this.sideNavService.updateSelectedCards();
   }
 }
 

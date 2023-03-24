@@ -7,5 +7,5 @@ import {Card} from "../../interfaces/card";
   styleUrls: ['./card-journey.component.scss']
 })
 export class CardJourneyComponent {
-  @Input() card: Card = {title: '', description: '', tags:  new Set<string>()}
+  @Input() card: Card = {title: '', description: '', month: '', tags: new Set<string>()}
 }

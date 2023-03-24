@@ -2,7 +2,11 @@
   <mat-sidenav #filter mode=push>
     <h2 class="title"> Filter journeys </h2>
     <mat-divider></mat-divider>
-    <div  *ngFor="let option of selectedOptions">
+    <div class="search-btn-container">
+      <button class="search-btn" (click)="displaySelectedCards()">Search</button>
+    </div>
+
+    <div *ngFor="let option of selectedOptions">
       <div class="display-flex" *ngFor="let tag of option.elements">
         <app-badge [text]="tag" [backgroundColor]="getBadgeColor(option.category)"></app-badge>
       </div>

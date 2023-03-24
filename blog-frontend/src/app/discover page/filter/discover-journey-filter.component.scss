@@ -29,3 +29,16 @@ mat-sidenav-container {
 .display-flex {
   display: inline-flex;
 }
+
+.search-btn {
+  width: 50%;
+  background-color: var(--orange);
+  border-radius: 20px;
+  border: solid transparent;
+  color: white;
+  margin: 20px;
+}
+.search-btn-container{
+  display: flex;
+  justify-content: center;
+}

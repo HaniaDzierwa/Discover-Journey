@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Tag} from "./interfaces/tag";
-import {Duration} from "./interfaces/duration";
+import {Tag} from "../interfaces/tag";
+import {Duration} from "../interfaces/duration";
 import {
   CategoryOrderArray,
   CategoryType,
   SelectedOption,
   SelectedOptions
-} from "./interfaces/selected-options-for-category";
+} from "../interfaces/selected-options-for-category";
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +14,20 @@ import {
 
 export class SelectionService {
 
-  _selectedOptions: SelectedOptions = {
+  private _selectedOptions: SelectedOptions = {
     ['Tag' as CategoryType]: [],
     ['Duration' as CategoryType]: [],
   }
-
   selectedElementsWithCategory: SelectedOption [] = []
 
   constructor() {
+    CategoryOrderArray.forEach(category => {
+      this.selectedElementsWithCategory.push({category: category, elements: []})
+    })
+  }
+
+  clean() {
+    this.selectedElementsWithCategory = []
     CategoryOrderArray.forEach(category => {
       this.selectedElementsWithCategory.push({category: category, elements: []})
     })
