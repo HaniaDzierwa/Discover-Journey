@@ -2,7 +2,7 @@ package pl.blog.blogJourney.restControlers.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import pl.blog.blogJourney.repository.JourneyTag;
+import pl.blog.blogJourney.model.JourneyTag;
 
 import java.util.Set;
 

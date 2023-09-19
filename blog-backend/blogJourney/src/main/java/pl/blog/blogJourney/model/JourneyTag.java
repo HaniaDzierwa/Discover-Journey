@@ -1,4 +1,4 @@
-package pl.blog.blogJourney.repository;
+package pl.blog.blogJourney.model;
 
 public enum JourneyTag {
     SPORT,
