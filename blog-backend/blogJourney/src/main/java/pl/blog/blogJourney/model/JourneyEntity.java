@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.blog.blogJourney.repository.JourneyTag;
 
 import java.util.Set;
 

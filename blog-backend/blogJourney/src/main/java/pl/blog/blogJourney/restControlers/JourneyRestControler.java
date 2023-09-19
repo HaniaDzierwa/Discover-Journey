@@ -3,10 +3,9 @@ package pl.blog.blogJourney.restControlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.blog.blogJourney.model.PhotoEntity;
 import pl.blog.blogJourney.repository.JourneyPointRepository;
 import pl.blog.blogJourney.repository.JourneyRepository;
-import pl.blog.blogJourney.repository.JourneyTag;
+import pl.blog.blogJourney.model.JourneyTag;
 import pl.blog.blogJourney.repository.PhotoRepository;
 import pl.blog.blogJourney.restControlers.model.JourneyPointResponse;
 import pl.blog.blogJourney.restControlers.model.JourneyResponse;

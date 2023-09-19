@@ -2,9 +2,7 @@ package pl.blog.blogJourney.startup;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import pl.blog.blogJourney.model.JourneyEntity;
-import pl.blog.blogJourney.model.JourneyPointEntity;
-import pl.blog.blogJourney.model.PhotoEntity;
+import pl.blog.blogJourney.model.*;
 import pl.blog.blogJourney.repository.*;
 import java.util.Set;
 
