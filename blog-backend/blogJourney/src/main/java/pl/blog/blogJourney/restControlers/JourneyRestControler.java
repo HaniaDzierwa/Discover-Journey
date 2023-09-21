@@ -14,6 +14,7 @@ import pl.blog.blogJourney.restControlers.model.TagDto;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -43,16 +44,17 @@ public class JourneyRestControler {
     }
 
 
-    @GetMapping("journeys/{tagsRequest}")
-    public Set<JourneyResponse> getAllJourneysWithTag(@PathVariable(name="tagsRequest") Set<TagDto> tagsRequest) {
-
-        var tags = tagsRequest.stream().map(e -> JourneyTag.valueOf(e.getName())).collect(Collectors.toSet());
-        //var a = journeyRepository.findByJourneyTagsIn(tags); -> powinni byc tak ale nie dziala trzeba zrobic query
+    @GetMapping("journeys/tagsRequest")
+    public Set<JourneyResponse> getAllJourneysWithTag(@RequestBody Set<TagDto> tagsRequest) {
+        var tags = tagsRequest.stream()
+                .map(e ->
+                        e.getName() != null ? JourneyTag.valueOf(e.getName()) : null)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toSet());
 
         return journeyRepository.findAll()
                 .stream()
-                .filter(e ->
-                        e.getJourneyTags().containsAll(tags))
+                .filter(e -> tags.isEmpty() ? true : e.getJourneyTags().containsAll(tags))
                 .map(p ->
                         new JourneyResponse(p.getName(), p.getDescription(), p.getMonth(), p.getJourneyTags()))
                 .collect(Collectors.toSet());
@@ -66,7 +68,7 @@ public class JourneyRestControler {
     }
 
     @GetMapping("journey/{journeyId}")
-    public List<JourneyPointResponse> getJourneyPoints(@PathVariable(name ="journeyId") long journeyId) {
+    public List<JourneyPointResponse> getJourneyPoints(@PathVariable(name = "journeyId") long journeyId) {
 
         var journey = journeyRepository.findById(journeyId);
         return journeyPointRepository.findByJourneyId(journey)
