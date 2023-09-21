@@ -29,6 +29,8 @@ public class JourneyEntity {
   @OneToMany(mappedBy = "journeyId")
   Set<JourneyPointEntity> journeyPoints;
 
+  @ElementCollection(targetClass = JourneyTag.class)
+  @Column(name = "tag")
   @Enumerated(EnumType.STRING)
   Set<JourneyTag> journeyTags;
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import pl.blog.blogJourney.model.*;
 import pl.blog.blogJourney.repository.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Component
@@ -42,9 +43,27 @@ public class TestDbDataInitializer {
                 .name("Tour Krakow")
                 .description("description of city")
                 .month(Month.MARCH.name())
-                .journeyTags(Set.of(JourneyTag.ENTERTAINMENT))
+                .journeyTags(Set.of(JourneyTag.SPORT,JourneyTag.ENTERTAINMENT))
                 .build();
         journeyRepository.save(journeyEntity2);
+
+        var journeyEntity3 = JourneyEntity.builder()
+                .name("Tour Chrzanów")
+                .description("description of city")
+                .month(Month.APRIL.name())
+                .journeyTags(Set.of(JourneyTag.SPORT, JourneyTag.CHILL, JourneyTag.ENTERTAINMENT))
+                .build();
+        journeyRepository.save(journeyEntity3);
+
+        Set<JourneyTag> emptySet = new HashSet<>();
+        emptySet.add(null);
+        var journeyEntity4 = JourneyEntity.builder()
+                .name("Tour Chrzanów")
+                .description("description of city")
+                .month(Month.APRIL.name())
+                .journeyTags(emptySet)
+                .build();
+        journeyRepository.save(journeyEntity4);
 
 
         var pointEntity = JourneyPointEntity.builder()
