@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.blog.blogJourney.restControlers.model.PhotoResponse;
 
 @Entity
 @Data
@@ -22,8 +23,11 @@ public class PhotoEntity {
     private String filePath;
 
     @OneToOne()
-    @JoinColumn( name ="journey_point_id" , referencedColumnName= "id")
+    @JoinColumn(name = "journey_point_id", referencedColumnName = "id")
     private JourneyPointEntity journeyPoint;
 
+    public PhotoResponse toPhotoResponse() {
+        return new PhotoResponse(id, type, filePath);
+    }
 }
 

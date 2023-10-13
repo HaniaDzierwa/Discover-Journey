@@ -9,9 +9,9 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 public class JourneyResponse {
+    private Long id;
     private String name;
     private String description;
     private String month;
     private Set<JourneyTag> tags;
-
 }

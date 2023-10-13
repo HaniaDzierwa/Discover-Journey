@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
+import pl.blog.blogJourney.restControlers.model.JourneyPointResponse;
 
 @Entity
 @Data
@@ -17,11 +17,12 @@ public class JourneyPointEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private Long id;
 
     private String name;
     private String description;
+    private String locationName;
     private double coordinateX;
     private double coordinateY;
 
@@ -32,5 +33,15 @@ public class JourneyPointEntity {
 
     @OneToOne(mappedBy = "journeyPoint")
     private PhotoEntity photoId;
+
+    public JourneyPointResponse toJourneyPointResponse() {
+        return new JourneyPointResponse(
+                name,
+                description,
+                locationName,
+                coordinateX,
+                coordinateY
+        );
+    }
 
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.blog.blogJourney.restControlers.model.JourneyResponse;
 
 import java.util.Set;
 
@@ -19,19 +20,29 @@ public class JourneyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
     private String name;
     private String description;
     private String month;
 
 
-  @OneToMany(mappedBy = "journeyId")
-  Set<JourneyPointEntity> journeyPoints;
+    @OneToMany(mappedBy = "journeyId")
+    Set<JourneyPointEntity> journeyPoints;
 
-  @ElementCollection(targetClass = JourneyTag.class)
-  @Column(name = "tag")
-  @Enumerated(EnumType.STRING)
-  Set<JourneyTag> journeyTags;
+    @ElementCollection(targetClass = JourneyTag.class)
+    @Column(name = "tag")
+    @Enumerated(EnumType.STRING)
+    Set<JourneyTag> journeyTags;
 
+
+    public JourneyResponse toJourneyResponse() {
+        return new JourneyResponse(
+                id,
+                name,
+                description,
+                month,
+                journeyTags
+        );
+    }
 }
